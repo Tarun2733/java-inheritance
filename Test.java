@@ -1,46 +1,34 @@
-// Java Program to Illustrate Unsupportance of
-// Multiple Inheritance
+class Animal {
 
-// Importing input output classes
-import java.io.*;
-
-// Class 1
-// First Parent class
-class Parent1 {
-
-// Method inside first parent class
-void fun() {
-
-	// Print statement if this method is called
-	System.out.println("Parent1");
-}
+  // field and method of the parent class
+  String name;
+  public void eat() {
+    System.out.println("I can eat");
+  }
 }
 
-// Class 2
-// Second Parent Class
-class Parent2 {
+// inherit from Animal
+class Dog extends Animal {
 
-// Method inside first parent class
-void fun() {
-
-	// Print statement if this method is called
-	System.out.println("Parent2");
-}
+  // new method in subclass
+  public void display() {
+    System.out.println("My name is " + name);
+  }
 }
 
-// Class 3
-// Trying to be child of both the classes
-class Test extends Parent1, Parent2 {
+class Test {
+  public static void main(String[] args) {
 
-// Main driver method
-public static void main(String args[]) {
+    // create an object of the subclass
+    Dog labrador = new Dog();
 
-	// Creating object of class in main() method
-	Test t = new Test();
+    // access field of superclass
+    labrador.name = "Zesty";
+    labrador.display();
 
-	// Trying to call above functions of class where
-	// Error is thrown as this class is inheriting
-	// multiple classes
-	t.fun();
-}
+    // call method of superclass
+    // using object of subclass
+    labrador.eat();
+
+  }
 }
